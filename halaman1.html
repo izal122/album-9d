@@ -1,0 +1,103 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Halaman Dengan Background Foto</title>
+<style>
+/* Reset sederhana */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0
+}
+html,body {
+height: 100%
+}
+
+/* Container full-screen dengan background gambar */
+.hero {
+min-height: 100vh;
+/* selalu memenuhi layar */
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+
+/* Ganti URL di bawah dengan URL foto Anda atau path lokal */
+background-image: url('handika.jpg');
+background-size: cover;
+/* biar menutup seluruh area */
+background-position: center center;
+background-repeat: no-repeat;
+
+/* Sejumlah perangkat mobile tidak mendukung background-attachment:fixed -> jangan pakai jika bermasalah */
+/* background-attachment: fixed; */
+}
+
+/* Overlay gelap untuk membuat teks terbaca */
+.overlay {
+position: absolute;
+inset: 0;
+/* top:0;right:0;bottom:0;left:0 */
+background: rgba(0,0,0,0.35);
+/* bisa diubah transparansinya */
+pointer-events: none;
+/* biar klik tetap ke elemen atas */
+}
+
+.content {
+position: relative;
+/* di atas overlay */
+color: #fff;
+padding: 2rem;
+max-width: 900px;
+z-index: 2;
+}
+
+h1 {
+font-size: clamp(1.6rem,4vw,3rem);
+margin-bottom: 0.5rem
+}
+p {
+font-size: clamp(1rem,2.2vw,1.25rem);
+margin-bottom: 1.25rem
+}
+
+.btn {
+display: inline-block;
+padding: 0.65rem 1rem;
+background: rgba(255,255,255,0.12);
+color: #fff;
+border: 1px solid rgba(255,255,255,0.18);
+border-radius: 10px;
+text-decoration: none;
+font-weight: 600;
+backdrop-filter: blur(4px);
+}
+
+/* Responsif kecil */
+@media (max-width:480px) {
+.content {
+padding: 1rem
+}
+}
+
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="overlay"></div>
+<div class="content">
+<h1>Selamat datang</h1>
+<p>
+di kenangan 9d.
+</p>
+<!-- Contoh tombol menuju halaman selanjutnya -->
+<a class="btn" href="halaman2.html">Masuk ke Halaman Berikutnya</a>
+</div>
+
+</section>
+</body>
+</html>
